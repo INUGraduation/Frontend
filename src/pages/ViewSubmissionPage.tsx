@@ -47,11 +47,11 @@ const ViewSubmissionPage: React.FC = () => {
         };
 
         // 신청서 양식 가져오기
-        const applicationResponse = await axios.get(`http://www.gaemoim.site/api/v1/recruitments/${recruitmentId}/applications`, { headers });
+        const applicationResponse = await axios.get(`http://localhost:8085/api/v1/recruitments/${recruitmentId}/applications`, { headers });
         setApplication(applicationResponse.data);
 
         // 제출된 답변 가져오기
-        const submissionResponse = await axios.get<SubmissionData>(`http://www.gaemoim.site/api/v1/applications/${applicationResponse.data.applicationId}/submissions/${submissionId}`, {
+        const submissionResponse = await axios.get<SubmissionData>(`http://localhost:8085/api/v1/applications/${applicationResponse.data.applicationId}/submissions/${submissionId}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -86,7 +86,7 @@ const ViewSubmissionPage: React.FC = () => {
         'Authorization': `Bearer ${token}`
       };
 
-      await axios.patch(`http://www.gaemoim.site/api/v1/applications/${application.applicationId}/submissions/${submissionId}/accepting`, {}, { headers });
+      await axios.patch(`http://localhost:8085/api/v1/applications/${application.applicationId}/submissions/${submissionId}/accepting`, {}, { headers });
       alert('신청서 수락 완료!');
       navigate(`/Recruitment_Owner/${recruitmentId}`);
     } catch (err) {
@@ -102,7 +102,7 @@ const ViewSubmissionPage: React.FC = () => {
         'Authorization': `Bearer ${token}`
       };
 
-      await axios.patch(`http://www.gaemoim.site/api/v1/applications/${application.applicationId}/submissions/${submissionId}/rejecting`, {}, { headers });
+      await axios.patch(`http://localhost:8085/api/v1/applications/${application.applicationId}/submissions/${submissionId}/rejecting`, {}, { headers });
       alert('신청서 거절 완료!');
       navigate(`/Recruitment_Owner/${recruitmentId}`);
     } catch (err) {

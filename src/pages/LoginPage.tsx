@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const response = await fetch('http://www.gaemoim.site/api/v1/auth/login', {
+    const response = await fetch('http://localhost:8085/api/v1/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

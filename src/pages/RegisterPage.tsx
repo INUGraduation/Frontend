@@ -42,7 +42,7 @@ const RegisterPage: React.FC = () => {
     }
 
     try {
-      const response = await fetch('http://www.gaemoim.site/api/v1/auth/register', {
+      const response = await fetch('http://localhost:8085/api/v1/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

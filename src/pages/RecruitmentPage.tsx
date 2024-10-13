@@ -63,7 +63,7 @@ function RecruitmentPage() {
   const navigate = useNavigate();
 
   const fetchRecruitment = async () => {
-    const url = `http://www.gaemoim.site/api/v1/recruitments/${recruitmentId}`;
+    const url = `http://localhost:8085/api/v1/recruitments/${recruitmentId}`;
     const token = localStorage.getItem('access_token');
     try {
       const response = await fetch(url, {

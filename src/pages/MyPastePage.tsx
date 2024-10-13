@@ -130,7 +130,7 @@ const MyPastePage: React.FC = () => {
         const headers = {
           'Authorization': `Bearer ${token}`
         };
-        const response = await axios.get('http://www.gaemoim.site/api/v1/recruitments/me', { headers });
+        const response = await axios.get('http://localhost:8085/api/v1/recruitments/me', { headers });
         setProjects(response.data); // 받아온 데이터로 상태 업데이트
       } catch (error) {
         console.error("API 요청 중 오류가 발생했습니다.", error);

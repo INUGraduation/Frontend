@@ -59,7 +59,7 @@ const ApplicationPage = () => {
     try {
       // 1. 신청서 양식 생성
       const applicationResponse = await axios.post(
-        `http://www.gaemoim.site/api/v1/recruitments/${recruitmentId}/applications`,
+        `http://localhost:8085/api/v1/recruitments/${recruitmentId}/applications`,
         {},
         { headers },
       );
@@ -71,7 +71,7 @@ const ApplicationPage = () => {
         if (type === 'multiple') {
           requestBody = { ...requestBody, options: data.options.map((option) => option.value) };
         }
-        await axios.post(`http://www.gaemoim.site/api/v1/applications/${applicationId}/questions`, requestBody, {
+        await axios.post(`http://localhost:8085/api/v1/applications/${applicationId}/questions`, requestBody, {
           headers,
         });
       }

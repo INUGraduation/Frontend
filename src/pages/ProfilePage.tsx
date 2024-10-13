@@ -25,7 +25,7 @@ const ProfilePage: React.FC = () => {
         const headers = {
           'Authorization': `Bearer ${token}`
         };
-        const response = await axios.get(`http://www.gaemoim.site/api/v1/profiles/${userId}`, { headers });
+        const response = await axios.get(`http://localhost:8085/api/v1/profiles/${userId}`, { headers });
         setProfileData(response.data);
       } catch (error) {
         console.error('Error fetching profile data:', error);

@@ -33,7 +33,7 @@ function WritePage() {
     };
 
     try {
-      const response = await fetch('http://www.gaemoim.site/api/v1/recruitments', {
+      const response = await fetch('http://localhost:8085/api/v1/recruitments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ function WritePage() {
         const range = quill.getSelection(true);
 
         try {
-          const response = await fetch('http://www.gaemoim.site/api/v1/recruitments/image', {
+          const response = await fetch('http://localhost:8085/api/v1/recruitments/image', {
             method: 'POST',
             headers: {
               Authorization: `Bearer ${localStorage.getItem('access_token')}`,

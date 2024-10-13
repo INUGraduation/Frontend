@@ -64,7 +64,7 @@ const UserProfile: React.FC = () => { // 변경: Profile -> UserProfile
         const headers = {
           'Authorization': `Bearer ${token}`
         };
-        const response = await fetch(`http://www.gaemoim.site/api/v1/profiles/me`, { headers });
+        const response = await fetch(`http://localhost:8085/api/v1/profiles/me`, { headers });
         const data: ProfileData = await response.json();
         setProfileData(data);
       } catch (error) {
@@ -99,7 +99,7 @@ const UserProfile: React.FC = () => { // 변경: Profile -> UserProfile
     formData.append('profile', new Blob([JSON.stringify(profileUpdateDto)], { type: 'application/json' }));
 
     try {
-      await axios.put(`http://www.gaemoim.site/api/v1/profiles/${profileData.id}`, formData, { headers });
+      await axios.put(`http://localhost:8085/api/v1/profiles/${profileData.id}`, formData, { headers });
       alert('프로필 수정 완료!');
       setIsEditMode(false); // 업데이트 후 조회 모드로 전환
       navigate('/MyUserEdit');

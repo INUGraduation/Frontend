@@ -15,7 +15,7 @@ const SubmissionPage = () => {
         const headers = {
           'Authorization': `Bearer ${token}`
         };
-        const response = await axios.get(`http://www.gaemoim.site/api/v1/recruitments/${recruitmentId}/applications`, { headers });
+        const response = await axios.get(`http://localhost:8085/api/v1/recruitments/${recruitmentId}/applications`, { headers });
         setApplication(response.data);
       } catch (error) {
         console.error('Failed to fetch application form:', error);
@@ -53,13 +53,13 @@ const SubmissionPage = () => {
       };
 
       // 첫 번째 API: 제출 생성
-      const submissionResponse = await axios.post(`http://www.gaemoim.site/api/v1/applications/${application.applicationId}/submissions`, {}, { headers });
+      const submissionResponse = await axios.post(`http://localhost:8085/api/v1/applications/${application.applicationId}/submissions`, {}, { headers });
       const submissionId = submissionResponse.data.submissionId;
 
       // 두 번째 API: 각 질문별 답변 제출
       for (const question of application.questions) {
         const formData = new FormData();
-        let url = `http://www.gaemoim.site/api/v1/applications/questions/${question.questionId}/submissions/${submissionId}/answers`;
+        let url = `http://localhost:8085/api/v1/applications/questions/${question.questionId}/submissions/${submissionId}/answers`;
 
         if (question.type === 'descriptive') {
           formData.append('content', responses[question.questionId] || '');
